@@ -9,24 +9,25 @@ public class Main {
 		double gravity = 0;
 		double angle = 0;
 		boolean balanceMode = false;
+		double dT = 0.01;//time of the program
 		
 		double kP = 0;
 		double kD = 0;
 		
 		double motor;
 		
-		long time = System.currentTimeMillis() % 10; //program executes 100 times per second
+		long time = (long) (System.currentTimeMillis() % (dT * 1000)); //program executes 100 times per second
 		
 		
 		double accAngle = Math.asin(xAccelerometer/gravity) * 180/Math.PI;
 		
 		if (time == 0){
-			angle = (0.98) * (angle + gyro * 0.01) + (0.02) * accAngle;
+			angle = (0.98) * (angle + gyro * dT) + (0.02) * accAngle;
 			
 		}
 
 		while (balanceMode){
-			motor = kP * angle + kD * 0.01;
+			motor = kP * angle + kD * dT;
 		}
 		
 	}
