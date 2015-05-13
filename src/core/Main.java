@@ -14,7 +14,8 @@ public class Main {
 		double kP = 0;
 		double kD = 0;
 		
-		double motor;
+		double rMotor;
+		double lMotor;
 		
 		long time = (long) (System.currentTimeMillis() % (dT * 1000)); //program executes 100 times per second
 		
@@ -27,7 +28,8 @@ public class Main {
 		}
 
 		while (balanceMode){
-			motor = kP * angle + kD * dT;
+			rMotor = kP * angle + kD * dT;
+			lMotor = -rMotor;
 		}
 		
 	}
