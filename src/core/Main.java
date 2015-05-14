@@ -11,7 +11,7 @@ public class Main {
 		boolean balanceMode   = false;
 		double dT             = 0.01;//time of the program
 		
-		double kP = 0;//make kp and kd based on rider weight
+		double kP = 0;//make kp and kd based on rider weight possibly
 		double kD = 0;
 		
 		double rMotor;
@@ -31,7 +31,7 @@ public class Main {
 		}
 
 		while (balanceMode){
-			rMotor = kP * angle + kD * dT;
+			rMotor = kP * angle + kD * gyro;
 			lMotor = -rMotor;
 		}
 		
